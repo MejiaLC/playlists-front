@@ -25,5 +25,5 @@ npm install
 ng serve --open
 
 # Credenciales para autenticación
-- usuario: Camilo
+- usuario: camilo
 - contraseña: 1234
