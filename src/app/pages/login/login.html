@@ -1,0 +1,11 @@
+<section class="container-auth">
+  <h2>Iniciar sesión</h2>
+  
+  <form (ngSubmit)="login()">
+    <input type="text" [(ngModel)]="username" name="username" placeholder="Usuario" required />
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required />
+    <button type="submit">Entrar</button>
+  </form>
+  
+  <p *ngIf="error" style="color: red;">{{ error }}</p>
+</section>

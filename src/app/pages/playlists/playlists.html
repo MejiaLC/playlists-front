@@ -1,0 +1,39 @@
+<h2>Crear Playlist</h2>
+
+<form (ngSubmit)="crearPlaylist()">
+  <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre" required />
+  <input type="text" [(ngModel)]="descripcion" name="descripcion" placeholder="Descripción" />
+
+  <h3>Canciones</h3>
+
+  <div *ngFor="let song of canciones; let i = index">
+    <input type="text" [(ngModel)]="song.titulo" name="titulo{{i}}" placeholder="Título" required />
+    <input type="text" [(ngModel)]="song.artista" name="artista{{i}}" placeholder="Artista" required />
+    <input type="text" [(ngModel)]="song.album" name="album{{i}}" placeholder="Álbum" />
+    <input type="text" [(ngModel)]="song.anno" name="anno{{i}}" placeholder="Año" />
+    <input type="text" [(ngModel)]="song.genero" name="genero{{i}}" placeholder="Género" />
+
+    <button type="button" (click)="eliminarCancion(i)">❌ Eliminar</button>
+    <hr />
+  </div>
+
+  <button type="button" (click)="agregarCancion()">Agregar canción</button>
+  <br><br>
+  <button type="submit">Guardar Playlist</button>
+</form>
+
+<hr />
+
+<h2>Mis Playlists</h2>
+<ul *ngIf="playlists.length > 0; else vacio">
+  <li *ngFor="let p of playlists">
+    <a [routerLink]="['/playlists', p.nombre]">
+      <strong>{{ p.nombre }}</strong>
+    </a> — {{ p.descripcion }}
+  </li>
+</ul>
+
+
+<ng-template #vacio>
+  <p>No hay playlists disponibles.</p>
+</ng-template>

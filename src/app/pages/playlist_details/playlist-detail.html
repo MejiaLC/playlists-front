@@ -1,0 +1,21 @@
+<h2>Detalle de Playlist</h2>
+
+<div *ngIf="playlist; else cargando">
+  <h3>{{ playlist.nombre }}</h3>
+  <p>{{ playlist.descripcion }}</p>
+
+  <h4>Canciones:</h4>
+  <ul>
+    <li *ngFor="let c of playlist.canciones">
+      {{ c.titulo }} - {{ c.artista }} ({{ c.genero }})
+    </li>
+  </ul>
+
+  <button *ngIf="playlist?.nombre" (click)="eliminarPlaylist(playlist.nombre!)">
+    Eliminar Playlist
+  </button>
+</div>
+
+<ng-template #cargando>
+  <p>Cargando...</p>
+</ng-template>
