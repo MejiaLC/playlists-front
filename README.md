@@ -1,4 +1,4 @@
-# 🎧 Playlists App - Angular Standalone
+# 🎧 Playlists App - Angular
 
 ## 🚀 Tecnologías
 
